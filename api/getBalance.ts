@@ -1,7 +1,7 @@
 import { alchemy } from "./settings";
 import config from "../config";
 
-const contractAddress = config.contractAddresses.checkBalance;
+const contractAddress = config.contractAddresses.checkBalance.address;
 
 export async function getBalance(walletAddress: string) {
     try {

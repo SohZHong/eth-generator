@@ -40,9 +40,6 @@ export default function RootLayout({
       const instance = await getWeb3Modal();
       const connection = await instance.connect();
       const provider = new ethers.BrowserProvider(connection);
-      // There is only ever up to one account exposed
-      const signer = provider.getSigner();
-      console.log(signer);
       const accounts = await provider.listAccounts();
       // Grab the first account
       setAccount(accounts[0].address);
