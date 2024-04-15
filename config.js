@@ -2,8 +2,10 @@ import { Network } from 'alchemy-sdk';
 import tokenTransferAbi from "./contracts/TokenTransfer.json";
 import checkBalanceAbi from "./contracts/CheckBalance.json";
 
+const alchemyApiKey = "KDEGdFfFHH-leVvss6lolaYLe5XVohb3";
+
 const config = {
-    alchemyApiKey: "KDEGdFfFHH-leVvss6lolaYLe5XVohb3", // Change accordingly
+    alchemyApiKey: alchemyApiKey, // Change accordingly
     alchemyApiUrl: `https://eth-sepolia.g.alchemy.com/v2/${alchemyApiKey}`,
     network: Network.ETH_SEPOLIA, // Change to Network.ETH_MAINNET when developing on main net
     contractAddresses: {

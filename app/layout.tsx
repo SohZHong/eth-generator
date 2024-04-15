@@ -57,14 +57,10 @@ export default function RootLayout({
         <nav className="p-10 flex items-center justify-end">
           {
             !account 
-              ? 
+              && 
               <button className="dark:text-white p-3 border border-white rounded-md" onClick={connect}>
                 Connect
               </button>
-              :
-              <div className="p-3 dark:text-white border border-white rounded-md">
-                {account}
-              </div>
           }
         </nav>
         <AccountContext.Provider value={account}>
