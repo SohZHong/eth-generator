@@ -8,7 +8,7 @@ export default function Home() {
   const [receiverAddress, setReceiverAddress] = useState<string>('');
   const [amount, setAmount] = useState<number>(0);
   const [errorMsg, setErrorMsg] = useState<string>('');
-  const [balance, setBalance] = useState<number | null>(null);
+  const [balance, setBalance] = useState<string | null>(null);
   // Obtain current selected account
   const account = useContext(AccountContext);
   // Handle Address Change
@@ -31,7 +31,7 @@ export default function Home() {
       setErrorMsg("Empty Receiver Address!")
     }
     else {
-      transferToken(account, receiverAddress, String(amount));
+      transferToken(receiverAddress, String(amount));
     }
   }
 
