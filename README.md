@@ -1,9 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
+First, obtain [SepoliaETH](https://faucetlink.to/sepolia) test tokens for the token transfer process:
 
-First, run the development server:
-
+Then run the development server:
 ```bash
 npm run dev
 # or
@@ -18,8 +16,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project uses [`ethersv6`](https://docs.ethers.org/v6/getting-started/) and [`Alchemy SDK`](https://docs.alchemy.com/reference/api-overview) for the coding process.
 
+Contracts are coded with solidity and deployed with [`Remix - Ethereum IDE`](remix.ethereum.org)
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
