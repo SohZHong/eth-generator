@@ -3,12 +3,14 @@ import AccountContext from "@/context/context";
 import { useContext, useEffect, useState } from "react";
 import { transferToken } from "@/api/transferToken";
 import { getBalance } from "@/api/getBalance";
+import { getAllTransactions, getRecentTransactions } from "@/api/getTransactions";
 
 export default function Home() {
   const [receiverAddress, setReceiverAddress] = useState<string>('');
   const [amount, setAmount] = useState<number>(0);
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [balance, setBalance] = useState<string | null>(null);
+  const [transactions, setTransactions] = useState<string[] | null>([]);
   // Obtain current selected account
   const account = useContext(AccountContext);
   // Handle Address Change
@@ -36,11 +38,14 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // Fetch balance when account changes
+    // Fetch balance and transactions when account changes
     if (account) {
       getBalance(account)
         .then(balance => setBalance(balance))
         .catch(error => console.error("Error fetching balance:", error));
+      getAllTransactions(account)
+        .then(transactions => setTransactions(transactions))
+        .catch(error => console.error("Error fetching transactions:", error))
     }
   }, [account]); // Run effect when account changes
 
@@ -85,6 +90,18 @@ export default function Home() {
         &&
         <div className="text-red-500">{errorMsg}</div>
       }
+      <div>
+        <h1 className="text-xl font-bold underline underline-offset-2">Transactions</h1>
+        <ul>
+          {transactions ? 
+            transactions.map((transaction, index) =>
+              <li key={index}>{transaction}</li>
+            )  
+            :
+            <li>No Transactions</li>
+          }
+        </ul>
+      </div>
     </main>
   );
 }

@@ -23,7 +23,7 @@ export async function getBalance(walletAddress: string): Promise<string> {
         if (typeof window.ethereum !== "undefined"){
             const ethersProvider = new ethers.BrowserProvider(window.ethereum);
             // Retrieve wallet balance
-            const balances = await ethersProvider.getBalance(walletAddress); //Maybe need switch to contract address
+            const balances = await ethersProvider.getBalance(walletAddress);
             return ethers.formatEther(balances);
         }
         else {
