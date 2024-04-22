@@ -18,6 +18,8 @@ const config = {
             abi: tokenTransferAbi,
         },
     },
+    etherScanApiKey: "QY5S11KJFDWKJXGA7IUHE75NNWQDWKKEBT", // Change accordingly
+    etherScanApiUrl: "https://api-sepolia.etherscan.io/api" // Change to https://api.etherscan.io/api when on mainnet
 }
 
 export default config
